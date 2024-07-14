@@ -1,0 +1,10 @@
+<div *ngIf="task" style="margin: 20px; border: 1px solid blueviolet; padding: 10px;">
+    <h2>Task Name: {{ task?.name }}</h2>
+    <p>Due Date: {{ task?.dueDate | date }}</p>
+    <p>Priority: {{ task?.priority }}</p>
+    <p>Notes: {{ task?.notes }}</p>
+    <button mat-button (click)="markAsCompleted()" *ngIf="!task.completed">Mark as Completed</button>
+    <button mat-button [routerLink]="['/tasks', task?.id, 'edit']">Edit</button>
+    <button mat-button [routerLink]="'/tasks'">Back</button>
+  </div>
+  

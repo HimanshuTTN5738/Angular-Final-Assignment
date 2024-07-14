@@ -1,0 +1,15 @@
+<div style="margin: 20px; padding-bottom: 10px;">
+  <div>
+    <button mat-button routerLink="/tasks/new">Add Task</button>
+    <mat-slide-toggle (change)="toggleShowCompleted()">Show Completed</mat-slide-toggle>
+  </div>
+  <mat-card *ngFor="let task of filteredTasks" style="padding: 10px; margin: 20px; border: 1px solid blueviolet;">
+    <h2>Task Name: {{ task.name }}</h2>
+    <p>Due Date: {{ task.dueDate | date }}</p>
+    <p>Priority: {{ task.priority }}</p>
+    <p>Notes: {{ task.notes }}</p>
+    <button mat-button [routerLink]="['/tasks', task.id]">View</button>
+    <button mat-button [routerLink]="['/tasks', task.id, 'edit']">Edit</button>
+    <button mat-button (click)="deleteTask(task.id)">Delete</button>
+  </mat-card>
+  </div>
